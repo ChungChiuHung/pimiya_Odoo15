@@ -46,10 +46,9 @@ apt-get install ttf-wqy-zenhei ttf-wqy-microhei -y
 ## docker compose config
 
 ```
-version: '3.1'
 services:
   web:
-    image: pimiya/odoo:latest
+    image: odoo:15
     depends_on:
       - db
     ports:
@@ -59,7 +58,7 @@ services:
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
   db:
-    image: pimiya/postgres:latest
+    image: postgres:13
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
